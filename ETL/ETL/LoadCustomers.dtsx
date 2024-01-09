@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadCustomers"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{DF121E34-D6F8-4220-9278-B94DAB40FF6C}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{1AF7D9F1-FA17-420E-B9C5-7BE25A21CB8E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -927,123 +927,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\LoadCustomers\Conditional Split"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input].Columns[NameSplitNumber]"
-                      cachedDataType="i4"
-                      cachedName="NameSplitNumber"
-                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split.Outputs[SingleWord]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="SingleWord"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 1</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">NameSplitNumber == 1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split.Outputs[Regular]"
-                  description="Output 2 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Regular"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 2</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">NameSplitNumber == 2</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">1</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split.Outputs[ThreeWord]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="ThreeWord"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\LoadCustomers\CustomerTable"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -1549,6 +1432,123 @@
                           name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[region]}</property>
                       </properties>
                     </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\SplitBasedOnNameWordNumber"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="SplitBasedOnNameWordNumber"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[SingleWord]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="SingleWord"
+                  synchronousInputId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NameSplitNumber == 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Regular]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Regular"
+                  synchronousInputId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 2</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NameSplitNumber == 2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[ThreeWord]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="ThreeWord"
+                  synchronousInputId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2096,7 +2096,7 @@ FROM     TempOrders</property>
               startId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output]" />
             <path
               refId="Package\LoadCustomers.Paths[Derived Column Output]"
-              endId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
+              endId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
               name="Derived Column Output"
               startId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output]" />
             <path
@@ -2123,12 +2123,12 @@ FROM     TempOrders</property>
               refId="Package\LoadCustomers.Paths[Regular]"
               endId="Package\LoadCustomers\TwoPartedName.Inputs[Derived Column Input]"
               name="Regular"
-              startId="Package\LoadCustomers\Conditional Split.Outputs[Regular]" />
+              startId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[Regular]" />
             <path
               refId="Package\LoadCustomers.Paths[SingleWord]"
               endId="Package\LoadCustomers\WrongDelimitedTwoPartName.Inputs[Derived Column Input]"
               name="SingleWord"
-              startId="Package\LoadCustomers\Conditional Split.Outputs[SingleWord]" />
+              startId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[SingleWord]" />
             <path
               refId="Package\LoadCustomers.Paths[Sort Output]"
               endId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input]"
@@ -2138,7 +2138,7 @@ FROM     TempOrders</property>
               refId="Package\LoadCustomers.Paths[ThreeWord]"
               endId="Package\LoadCustomers\ThreePartedName.Inputs[Derived Column Input]"
               name="ThreeWord"
-              startId="Package\LoadCustomers\Conditional Split.Outputs[ThreeWord]" />
+              startId="Package\LoadCustomers\SplitBasedOnNameWordNumber.Outputs[ThreeWord]" />
             <path
               refId="Package\LoadCustomers.Paths[Union All Output 1]"
               endId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input]"
@@ -2247,23 +2247,23 @@ FROM     TempOrders</property>
           Id="Package\LoadCustomers\NameTokenNumber"
           TopLeft="344.285715018608,229.411764504794" />
         <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\LoadCustomers\Conditional Split"
-          TopLeft="354.285715039895,310.470587963155" />
+          Size="230.4,41.6"
+          Id="Package\LoadCustomers\SplitBasedOnNameWordNumber"
+          TopLeft="318.571429249583,309.705882081472" />
         <EdgeLayout
           Id="Package\LoadCustomers.Paths[Derived Column Output]"
-          TopLeft="430.885715029252,271.011764504794">
+          TopLeft="432.028572134096,271.011764504794">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.4588234583606"
+              EndConnector="0,38.6941175766777"
               Start="0,0"
-              End="0,31.9588234583606">
+              End="0,31.1941175766777">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.9588234583606" />
+                    End="0,31.1941175766777" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2278,37 +2278,37 @@ FROM     TempOrders</property>
           TopLeft="150.714286035117,413.705881990312" />
         <EdgeLayout
           Id="Package\LoadCustomers.Paths[Regular]"
-          TopLeft="394.885715039895,352.070587963155">
+          TopLeft="378.171429249583,351.305882081472">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-166.171429004779,61.6352940271571"
+              EndConnector="-149.457143214467,62.3999999088397"
               Start="0,0"
-              End="-166.171429004779,54.1352940271571">
+              End="-149.457143214467,54.8999999088397">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.2427244270168" />
+                    End="0,17.2759725089637" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.2427244270168"
-                    Point2="0,21.2427244270168"
-                    Point3="-4,21.2427244270168" />
+                    Point1="0,17.2759725089637"
+                    Point2="0,21.2759725089637"
+                    Point3="-4,21.2759725089637" />
                   <mssgle:LineSegment
-                    End="-162.171429004779,21.2427244270168" />
+                    End="-145.457143214467,21.2759725089637" />
                   <mssgle:CubicBezierSegment
-                    Point1="-162.171429004779,21.2427244270168"
-                    Point2="-166.171429004779,21.2427244270168"
-                    Point3="-166.171429004779,25.2427244270168" />
+                    Point1="-145.457143214467,21.2759725089637"
+                    Point2="-149.457143214467,21.2759725089637"
+                    Point3="-149.457143214467,25.2759725089637" />
                   <mssgle:LineSegment
-                    End="-166.171429004779,54.1352940271571" />
+                    End="-149.457143214467,54.8999999088397" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-100.554405908639,26.2427244270168,34.9373828125,11.6630859375"
+              BoundingBox="-92.1972630134833,26.2759725089637,34.9373828125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2318,25 +2318,25 @@ FROM     TempOrders</property>
           TopLeft="327.142857839258,471.823528998193" />
         <EdgeLayout
           Id="Package\LoadCustomers.Paths[SingleWord]"
-          TopLeft="434.314286439577,352.070587963154">
+          TopLeft="435.457143544421,351.305882081472">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,119.752941035039"
+              EndConnector="0,120.517646916721"
               Start="0,0"
-              End="0,112.252941035039">
+              End="0,113.017646916721">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,112.252941035039" />
+                    End="0,113.017646916721" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-25.52865234375,50.2949275487694,51.0573046875,11.6630859375"
+              BoundingBox="-25.52865234375,50.6772804896106,51.0573046875,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2346,37 +2346,37 @@ FROM     TempOrders</property>
           TopLeft="618.571429888204,440.470587849204" />
         <EdgeLayout
           Id="Package\LoadCustomers.Paths[ThreeWord]"
-          TopLeft="468.085715039895,352.070587963154">
+          TopLeft="489.371429249583,351.305882081472">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="232.085714848309,88.39999988605"
+              EndConnector="210.800000638621,89.1647057677325"
               Start="0,0"
-              End="232.085714848309,80.89999988605">
+              End="210.800000638621,81.6647057677325">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.46723255835" />
+                    End="0,26.4016960169156" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.46723255835"
-                    Point2="0,30.46723255835"
-                    Point3="4,30.46723255835" />
+                    Point1="0,26.4016960169156"
+                    Point2="0,30.4016960169156"
+                    Point3="4,30.4016960169156" />
                   <mssgle:LineSegment
-                    End="228.085714848309,30.46723255835" />
+                    End="206.800000638621,30.4016960169156" />
                   <mssgle:CubicBezierSegment
-                    Point1="228.085714848309,30.46723255835"
-                    Point2="232.085714848309,30.46723255835"
-                    Point3="232.085714848309,34.46723255835" />
+                    Point1="206.800000638621,30.4016960169156"
+                    Point2="210.800000638621,30.4016960169156"
+                    Point3="210.800000638621,34.4016960169156" />
                   <mssgle:LineSegment
-                    End="232.085714848309,80.89999988605" />
+                    End="210.800000638621,81.6647057677325" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="90.8137753929046,35.46723255835,50.4581640625,9.7490234375"
+              BoundingBox="80.1709182880606,35.4016960169156,50.4581640625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
