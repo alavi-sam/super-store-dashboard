@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadCustomers"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{06662806-392C-4299-9B9E-8DB59EB84CD5}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{DF121E34-D6F8-4220-9278-B94DAB40FF6C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -644,6 +644,20 @@
                           name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="511"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -732,7 +746,7 @@
                     <outputColumn
                       refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]"
                       dataType="wstr"
-                      length="255"
+                      length="511"
                       lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]"
                       name="FirstName" />
                     <outputColumn
@@ -1030,96 +1044,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\LoadCustomers\Conditional Split 1"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input].Columns[FirstName]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="FirstName"
-                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split 1.Outputs[Case 1]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Case 1"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]})</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(FirstName)</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Default Output]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Conditional Split Default Output"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\LoadCustomers\CustomerTable"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -1201,7 +1125,7 @@
                     <inputColumn
                       refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[FirstName]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="511"
                       cachedName="FirstName"
                       externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
                       lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]" />
@@ -1314,68 +1238,6 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\LoadCustomers\Multicast"
-              componentClassID="Microsoft.Multicast"
-              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="Multicast">
-              <inputs>
-                <input
-                  refId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]"
-                  name="Multicast Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 1]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
-                  synchronousInputId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 3]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 3"
-                  synchronousInputId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 2]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 2"
-                  synchronousInputId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\LoadCustomers\Multicast 1"
-              componentClassID="Microsoft.Multicast"
-              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="Multicast 1">
-              <inputs>
-                <input
-                  refId="Package\LoadCustomers\Multicast 1.Inputs[Multicast Input 1]"
-                  name="Multicast Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadCustomers\Multicast 1.Outputs[Multicast Output 1]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
-                  synchronousInputId="Package\LoadCustomers\Multicast 1.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -2228,11 +2090,6 @@ FROM     TempOrders</property>
           </components>
           <paths>
             <path
-              refId="Package\LoadCustomers.Paths[Case 1]"
-              endId="Package\LoadCustomers\Multicast 1.Inputs[Multicast Input 1]"
-              name="Case 1"
-              startId="Package\LoadCustomers\Conditional Split 1.Outputs[Case 1]" />
-            <path
               refId="Package\LoadCustomers.Paths[Data Conversion Output]"
               endId="Package\LoadCustomers\NameTokenNumber.Inputs[Derived Column Input]"
               name="Data Conversion Output"
@@ -2257,16 +2114,6 @@ FROM     TempOrders</property>
               endId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\LoadCustomers.Paths[Multicast Output 1]"
-              endId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input]"
-              name="Multicast Output 1"
-              startId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 1]" />
-            <path
-              refId="Package\LoadCustomers.Paths[Multicast Output 3]"
-              endId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]"
-              name="Multicast Output 3"
-              startId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 3]" />
             <path
               refId="Package\LoadCustomers.Paths[OLE DB Source Output]"
               endId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input]"
@@ -2294,7 +2141,7 @@ FROM     TempOrders</property>
               startId="Package\LoadCustomers\Conditional Split.Outputs[ThreeWord]" />
             <path
               refId="Package\LoadCustomers.Paths[Union All Output 1]"
-              endId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]"
+              endId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input]"
               name="Union All Output 1"
               startId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1]" />
           </paths>
@@ -2704,155 +2551,27 @@ FROM     TempOrders</property>
         <NodeLayout
           Size="148.8,41.6"
           Id="Package\LoadCustomers\CustomerTable"
-          TopLeft="365.000000776989,737.682352456554" />
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\LoadCustomers\Multicast"
-          TopLeft="448.571429526319,663.611764425029" />
+          TopLeft="370.000000787633,668.094117223433" />
         <EdgeLayout
           Id="Package\LoadCustomers.Paths[Union All Output 1]"
-          TopLeft="443.171429366664,617.929411330355">
+          TopLeft="443.785715077149,617.929411330355">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.4000001596554,45.6823530946735"
+              EndConnector="0,50.1647058930776"
               Start="0,0"
-              End="65.4000001596554,38.1823530946735">
+              End="0,42.6647058930776">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.8411765473368" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.8411765473368"
-                    Point2="0,22.8411765473368"
-                    Point3="4,22.8411765473368" />
-                  <mssgle:LineSegment
-                    End="61.4000001596554,22.8411765473368" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.4000001596554,22.8411765473368"
-                    Point2="65.4000001596554,22.8411765473368"
-                    Point3="65.4000001596554,26.8411765473368" />
-                  <mssgle:LineSegment
-                    End="65.4000001596554,38.1823530946735" />
+                    End="0,42.6647058930776" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadCustomers.Paths[Multicast Output 1]"
-          TopLeft="508.571429526319,705.211764425029">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-69.1714287493301,32.4705880315248"
-              Start="0,0"
-              End="-69.1714287493301,24.9705880315248">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.2352940157624" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.2352940157624"
-                    Point2="0,16.2352940157624"
-                    Point3="-4,16.2352940157624" />
-                  <mssgle:LineSegment
-                    End="-65.1714287493301,16.2352940157624" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-65.1714287493301,16.2352940157624"
-                    Point2="-69.1714287493301,16.2352940157624"
-                    Point3="-69.1714287493301,20.2352940157624" />
-                  <mssgle:LineSegment
-                    End="-69.1714287493301,24.9705880315248" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\LoadCustomers\Conditional Split 1"
-          TopLeft="616.428572740786,716.470588077105" />
-        <EdgeLayout
-          Id="Package\LoadCustomers.Paths[Multicast Output 3]"
-          TopLeft="568.571429526319,684.411764425029">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="47.8571432144668,52.8588236520758"
-              Start="0,0"
-              End="40.3571432144668,52.8588236520758">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="19.9285716072334,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.9285716072334,0"
-                    Point2="23.9285716072334,0"
-                    Point3="23.9285716072334,4" />
-                  <mssgle:LineSegment
-                    End="23.9285716072334,48.8588236520758" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.9285716072334,48.8588236520758"
-                    Point2="23.9285716072334,52.8588236520758"
-                    Point3="27.9285716072334,52.8588236520758" />
-                  <mssgle:LineSegment
-                    End="40.3571432144668,52.8588236520758" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\LoadCustomers\Multicast 1"
-          TopLeft="652.142858531098,787.588235073591" />
-        <EdgeLayout
-          Id="Package\LoadCustomers.Paths[Case 1]"
-          TopLeft="698.028572740786,758.070588077105">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18.514285790312,29.5176469964861"
-              Start="0,0"
-              End="18.514285790312,22.0176469964861">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.758823498243" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.758823498243"
-                    Point2="0,14.758823498243"
-                    Point3="4,14.758823498243" />
-                  <mssgle:LineSegment
-                    End="14.514285790312,14.758823498243" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.514285790312,14.758823498243"
-                    Point2="18.514285790312,14.758823498243"
-                    Point3="18.514285790312,18.758823498243" />
-                  <mssgle:LineSegment
-                    End="18.514285790312,22.0176469964861" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.622075854844,19.758823498243,47.7584375,16"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
