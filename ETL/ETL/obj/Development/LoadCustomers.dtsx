@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LoadCustomers"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E39B5536-2A10-4FF3-96A8-31B105D543F2}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{06662806-392C-4299-9B9E-8DB59EB84CD5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,13 +58,1075 @@
           version="1">
           <components>
             <component
-              refId="Package\LoadCustomers\ExcelSource"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Excel Source"
-              name="ExcelSource"
-              usesDispositions="true"
+              refId="Package\LoadCustomers\AllCustomers"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="AllCustomers"
               version="1">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[customer_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[segment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[state]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[state]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[market]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[SegmentW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SegmentW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[SegmentW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[SegmentW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[CountryW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[CountryW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[CountryW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[MarketW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MarketW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[MarketW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[MarketW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[RegionW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegionW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[RegionW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[RegionW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[customer_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[segment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[state]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[state]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[market]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[SegmentW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SegmentW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[SegmentW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[SegmentW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[CountryW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[CountryW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[CountryW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[MarketW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MarketW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[MarketW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[MarketW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[RegionW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegionW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[RegionW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[RegionW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[customer_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[segment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[state]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[state]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[market]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[SegmentW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SegmentW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[SegmentW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[SegmentW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[CountryW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[CountryW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[CountryW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[MarketW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MarketW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[MarketW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[MarketW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[RegionW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegionW"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[RegionW]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[RegionW]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[customer_name]"
+                      name="customer_name" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[segment]"
+                      name="segment" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[market]"
+                      name="market" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[SegmentW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[SegmentW]"
+                      name="SegmentW" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[CountryW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[CountryW]"
+                      name="CountryW" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[MarketW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[MarketW]"
+                      name="MarketW" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[RegionW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[RegionW]"
+                      name="RegionW" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]"
+                      name="NameSplitNumber" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]"
+                      name="LastName" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\ChangeToUnicodeText"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="ChangeToUnicodeText"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[SegmentW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[SegmentW]"
+                      name="SegmentW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[CountryW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[CountryW]"
+                      name="CountryW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[MarketW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[MarketW]"
+                      name="MarketW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[RegionW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output].Columns[RegionW]"
+                      name="RegionW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split.Outputs[SingleWord]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="SingleWord"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NameSplitNumber == 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split.Outputs[Regular]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Regular"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 2</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NameSplitNumber == 2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split.Outputs[ThreeWord]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="ThreeWord"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split 1.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(FirstName)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\CustomerTable"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CustomerTable"
+              usesDispositions="true"
+              version="4">
               <properties>
                 <property
                   dataType="System.Int32"
@@ -73,7 +1135,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Orders$</property>
+                  name="OpenRowset">[dbo].[Customer]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -84,469 +1146,171 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
-                  description="The mapping from parameters in the SQL command to variables."
-                  name="ParameterMapping"></property>
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LoadCustomers\ExcelSource.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  refId="Package\LoadCustomers\CustomerTable.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SuperStore]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SuperStore]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
-              <outputs>
-                <output
-                  refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output]"
-                  name="Excel Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[order_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[order_id]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[order_id]"
-                      name="order_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[order_date]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[order_date]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[order_date]"
-                      name="order_date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[ship_date]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[ship_date]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[ship_date]"
-                      name="ship_date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[ship_mode]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[ship_mode]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[ship_mode]"
-                      name="ship_mode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[customer_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[customer_name]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[customer_name]"
-                      name="customer_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[segment]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[segment]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[segment]"
-                      name="segment"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[state]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[state]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[state]"
-                      name="state"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[country]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[country]"
-                      name="country"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[market]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[market]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[market]"
-                      name="market"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[region]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[region]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[region]"
-                      name="region"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[product_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[product_id]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[product_id]"
-                      name="product_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[category]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[category]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[category]"
-                      name="category"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[sub_category]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[sub_category]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[sub_category]"
-                      name="sub_category"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[product_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[product_name]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[product_name]"
-                      name="product_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[sales]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[sales]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[sales]"
-                      name="sales"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[quantity]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[quantity]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[quantity]"
-                      name="quantity"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[discount]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[discount]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[discount]"
-                      name="discount"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[profit]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[profit]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[profit]"
-                      name="profit"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[shipping_cost]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[shipping_cost]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[shipping_cost]"
-                      name="shipping_cost"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[order_priority]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[order_priority]"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[order_priority]"
-                      name="order_priority"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[year]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[year]"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].Columns[year]"
-                      name="year"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[state]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[SegmentW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SegmentW"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[SegmentW]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[CountryW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CountryW"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[CountryW]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[MarketW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MarketW"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Market]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[MarketW]" />
+                    <inputColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].Columns[RegionW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegionW"
+                      externalMetadataColumnId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1].Columns[RegionW]" />
+                  </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
                       dataType="wstr"
-                      length="255"
-                      name="order_id" />
+                      length="80"
+                      name="FirstName" />
                     <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[order_date]"
-                      dataType="date"
-                      name="order_date" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[ship_date]"
-                      dataType="date"
-                      name="ship_date" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[ship_mode]"
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
                       dataType="wstr"
-                      length="255"
-                      name="ship_mode" />
+                      length="80"
+                      name="LastName" />
                     <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[customer_name]"
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Segment" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[State]"
                       dataType="wstr"
-                      length="255"
-                      name="customer_name" />
+                      length="100"
+                      name="State" />
                     <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[segment]"
-                      dataType="wstr"
-                      length="255"
-                      name="segment" />
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Country" />
                     <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[state]"
-                      dataType="wstr"
-                      length="255"
-                      name="state" />
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Market]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Market" />
                     <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[country]"
-                      dataType="wstr"
-                      length="255"
-                      name="country" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[market]"
-                      dataType="wstr"
-                      length="255"
-                      name="market" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[region]"
-                      dataType="wstr"
-                      length="255"
-                      name="region" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[product_id]"
-                      dataType="wstr"
-                      length="255"
-                      name="product_id" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[category]"
-                      dataType="wstr"
-                      length="255"
-                      name="category" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[sub_category]"
-                      dataType="wstr"
-                      length="255"
-                      name="sub_category" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[product_name]"
-                      dataType="wstr"
-                      length="255"
-                      name="product_name" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[sales]"
-                      dataType="r8"
-                      name="sales" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[quantity]"
-                      dataType="r8"
-                      name="quantity" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[discount]"
-                      dataType="r8"
-                      name="discount" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[profit]"
-                      dataType="r8"
-                      name="profit" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[shipping_cost]"
-                      dataType="r8"
-                      name="shipping_cost" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[order_priority]"
-                      dataType="wstr"
-                      length="255"
-                      name="order_priority" />
-                    <externalMetadataColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output].ExternalColumns[year]"
-                      dataType="r8"
-                      name="year" />
+                      refId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Region" />
                   </externalMetadataColumns>
-                </output>
+                </input>
+              </inputs>
+              <outputs>
                 <output
-                  refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output]"
+                  refId="Package\LoadCustomers\CustomerTable.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
                   isErrorOut="true"
-                  name="Excel Source Error Output">
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[order_id]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[order_id]"
-                      name="order_id" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[order_date]"
-                      dataType="date"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[order_date]"
-                      name="order_date" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ship_date]"
-                      dataType="date"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ship_date]"
-                      name="ship_date" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ship_mode]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ship_mode]"
-                      name="ship_mode" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[customer_name]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[customer_name]"
-                      name="customer_name" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[segment]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[segment]"
-                      name="segment" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[state]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[state]"
-                      name="state" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[country]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[country]"
-                      name="country" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[market]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[market]"
-                      name="market" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[region]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[region]"
-                      name="region" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[product_id]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[product_id]"
-                      name="product_id" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[category]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[category]"
-                      name="category" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[sub_category]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[sub_category]"
-                      name="sub_category" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[product_name]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[product_name]"
-                      name="product_name" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[sales]"
-                      dataType="r8"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[sales]"
-                      name="sales" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[quantity]"
-                      dataType="r8"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[quantity]"
-                      name="quantity" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[discount]"
-                      dataType="r8"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[discount]"
-                      name="discount" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[profit]"
-                      dataType="r8"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[profit]"
-                      name="profit" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[shipping_cost]"
-                      dataType="r8"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[shipping_cost]"
-                      name="shipping_cost" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[order_priority]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[order_priority]"
-                      name="order_priority" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[year]"
-                      dataType="r8"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[year]"
-                      name="year" />
-                    <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LoadCustomers\CustomerTable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LoadCustomers\CustomerTable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LoadCustomers\CustomerTable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LoadCustomers\CustomerTable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -570,10 +1334,893 @@
               <outputs>
                 <output
                   refId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 1]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 1"
                   synchronousInputId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\Multicast 1"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast 1">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\Multicast 1.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\Multicast 1.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\LoadCustomers\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\NameTokenNumber"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="NameTokenNumber"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\NameTokenNumber.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\NameTokenNumber.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadCustomers\NameTokenNumber.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]"
+                      name="NameSplitNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKENCOUNT](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]}," ")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKENCOUNT(customer_name," ")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadCustomers\NameTokenNumber.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\RemoveDuplicates"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="RemoveDuplicates"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[segment]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[state]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[market]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]"
+                      name="customer_name"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[segment]"
+                      name="segment"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[segment]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[state]"
+                      name="state"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[state]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[country]"
+                      name="country"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[market]"
+                      name="market"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[market]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[region]"
+                      name="region"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\TempOrders"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="TempOrders"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT customer_name, segment, state, country, market, region
+FROM     TempOrders</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadCustomers\TempOrders.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SuperStore]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SuperStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]"
+                      name="customer_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[segment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[segment]"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[segment]"
+                      name="segment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[market]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[market]"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[market]"
+                      name="market"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      name="segment" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[market]"
+                      dataType="wstr"
+                      length="255"
+                      name="market" />
+                    <externalMetadataColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[customer_name]"
+                      name="customer_name" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[segment]"
+                      name="segment" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[market]"
+                      name="market" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\ThreePartedName"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="ThreePartedName"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\ThreePartedName.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\ThreePartedName.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadCustomers\ThreePartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="511"
+                      lineageId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]}," ",1) + " " + [TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]}," ",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",1) + " " + TOKEN(customer_name," ",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]}," ",3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",3)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadCustomers\ThreePartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\TwoPartedName"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="TwoPartedName"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\TwoPartedName.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\TwoPartedName.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadCustomers\TwoPartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]}," ",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]}," ",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadCustomers\TwoPartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadCustomers\WrongDelimitedTwoPartName"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="WrongDelimitedTwoPartName"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadCustomers\WrongDelimitedTwoPartName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]},"-| :",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name,"-| :",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output].Columns[customer_name]},"-| :",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name,"-| :",2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadCustomers\WrongDelimitedTwoPartName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -581,10 +2228,75 @@
           </components>
           <paths>
             <path
-              refId="Package\LoadCustomers.Paths[Excel Source Output]"
+              refId="Package\LoadCustomers.Paths[Case 1]"
+              endId="Package\LoadCustomers\Multicast 1.Inputs[Multicast Input 1]"
+              name="Case 1"
+              startId="Package\LoadCustomers\Conditional Split 1.Outputs[Case 1]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Data Conversion Output]"
+              endId="Package\LoadCustomers\NameTokenNumber.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\LoadCustomers\ChangeToUnicodeText.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Derived Column Output]"
+              endId="Package\LoadCustomers\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\LoadCustomers\NameTokenNumber.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Derived Column Output1]"
+              endId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\LoadCustomers\TwoPartedName.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Derived Column Output2]"
+              endId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\LoadCustomers\WrongDelimitedTwoPartName.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Derived Column Output3]"
+              endId="Package\LoadCustomers\AllCustomers.Inputs[Union All Input 3]"
+              name="Derived Column Output"
+              startId="Package\LoadCustomers\ThreePartedName.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Multicast Output 1]"
+              endId="Package\LoadCustomers\CustomerTable.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Multicast Output 3]"
+              endId="Package\LoadCustomers\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Multicast Output 3"
+              startId="Package\LoadCustomers\Multicast.Outputs[Multicast Output 3]" />
+            <path
+              refId="Package\LoadCustomers.Paths[OLE DB Source Output]"
+              endId="Package\LoadCustomers\RemoveDuplicates.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\LoadCustomers\TempOrders.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Regular]"
+              endId="Package\LoadCustomers\TwoPartedName.Inputs[Derived Column Input]"
+              name="Regular"
+              startId="Package\LoadCustomers\Conditional Split.Outputs[Regular]" />
+            <path
+              refId="Package\LoadCustomers.Paths[SingleWord]"
+              endId="Package\LoadCustomers\WrongDelimitedTwoPartName.Inputs[Derived Column Input]"
+              name="SingleWord"
+              startId="Package\LoadCustomers\Conditional Split.Outputs[SingleWord]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Sort Output]"
+              endId="Package\LoadCustomers\ChangeToUnicodeText.Inputs[Data Conversion Input]"
+              name="Sort Output"
+              startId="Package\LoadCustomers\RemoveDuplicates.Outputs[Sort Output]" />
+            <path
+              refId="Package\LoadCustomers.Paths[ThreeWord]"
+              endId="Package\LoadCustomers\ThreePartedName.Inputs[Derived Column Input]"
+              name="ThreeWord"
+              startId="Package\LoadCustomers\Conditional Split.Outputs[ThreeWord]" />
+            <path
+              refId="Package\LoadCustomers.Paths[Union All Output 1]"
               endId="Package\LoadCustomers\Multicast.Inputs[Multicast Input 1]"
-              name="Excel Source Output"
-              startId="Package\LoadCustomers\ExcelSource.Outputs[Excel Source Output]" />
+              name="Union All Output 1"
+              startId="Package\LoadCustomers\AllCustomers.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -678,41 +2390,33 @@
     design-time-name="Package\LoadCustomers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\LoadCustomers\ExcelSource"
-          TopLeft="368.57142935602,71.1176469964862" />
+          Size="136.8,41.6"
+          Id="Package\LoadCustomers\TempOrders"
+          TopLeft="365.00000077699,0.76470588168263" />
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\LoadCustomers\Multicast"
-          TopLeft="313.57142923894,182.764705722153" />
+          Size="172,41.6"
+          Id="Package\LoadCustomers\NameTokenNumber"
+          TopLeft="344.285715018608,229.411764504794" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\LoadCustomers\Conditional Split"
+          TopLeft="354.285715039895,310.470587963155" />
         <EdgeLayout
-          Id="Package\LoadCustomers.Paths[Excel Source Output]"
-          TopLeft="435.77142935602,112.717646996486">
+          Id="Package\LoadCustomers.Paths[Derived Column Output]"
+          TopLeft="430.885715029252,271.011764504794">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-62.2000001170804,70.0470587256664"
+              EndConnector="0,39.4588234583606"
               Start="0,0"
-              End="-62.2000001170804,62.5470587256664">
+              End="0,31.9588234583606">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.0235293628332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.0235293628332"
-                    Point2="0,35.0235293628332"
-                    Point3="-4,35.0235293628332" />
-                  <mssgle:LineSegment
-                    End="-58.2000001170804,35.0235293628332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-58.2000001170804,35.0235293628332"
-                    Point2="-62.2000001170804,35.0235293628332"
-                    Point3="-62.2000001170804,39.0235293628332" />
-                  <mssgle:LineSegment
-                    End="-62.2000001170804,62.5470587256664" />
+                    End="0,31.9588234583606" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -721,11 +2425,449 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\LoadCustomers\TwoPartedName"
+          TopLeft="150.714286035117,413.705881990312" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Regular]"
+          TopLeft="394.885715039895,352.070587963155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166.171429004779,61.6352940271571"
+              Start="0,0"
+              End="-166.171429004779,54.1352940271571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2427244270168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2427244270168"
+                    Point2="0,21.2427244270168"
+                    Point3="-4,21.2427244270168" />
+                  <mssgle:LineSegment
+                    End="-162.171429004779,21.2427244270168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162.171429004779,21.2427244270168"
+                    Point2="-166.171429004779,21.2427244270168"
+                    Point3="-166.171429004779,25.2427244270168" />
+                  <mssgle:LineSegment
+                    End="-166.171429004779,54.1352940271571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.554405908639,26.2427244270168,34.9373828125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\LoadCustomers\WrongDelimitedTwoPartName"
+          TopLeft="327.142857839258,471.823528998193" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[SingleWord]"
+          TopLeft="434.314286439577,352.070587963154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,119.752941035039"
+              Start="0,0"
+              End="0,112.252941035039">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.252941035039" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.52865234375,50.2949275487694,51.0573046875,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\LoadCustomers\ThreePartedName"
+          TopLeft="618.571429888204,440.470587849204" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[ThreeWord]"
+          TopLeft="468.085715039895,352.070587963154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="232.085714848309,88.39999988605"
+              Start="0,0"
+              End="232.085714848309,80.89999988605">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.46723255835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.46723255835"
+                    Point2="0,30.46723255835"
+                    Point3="4,30.46723255835" />
+                  <mssgle:LineSegment
+                    End="228.085714848309,30.46723255835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="228.085714848309,30.46723255835"
+                    Point2="232.085714848309,30.46723255835"
+                    Point3="232.085714848309,34.46723255835" />
+                  <mssgle:LineSegment
+                    End="232.085714848309,80.89999988605" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="90.8137753929046,35.46723255835,50.4581640625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\LoadCustomers\ChangeToUnicodeText"
+          TopLeft="345.714286450221,155.99999986326" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Data Conversion Output]"
+          TopLeft="434.000000734414,197.59999986326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.8117646415342"
+              Start="0,0"
+              End="0,24.3117646415342">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3117646415342" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\LoadCustomers\RemoveDuplicates"
+          TopLeft="357.14285790312,75.705882286582" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[OLE DB Source Output]"
+          TopLeft="436.471429340055,42.3647058816826">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.3411764048994"
+              Start="0,0"
+              End="0,25.8411764048994">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8411764048994" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Sort Output]"
+          TopLeft="438.628572176671,117.305882286582">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.694117576678"
+              Start="0,0"
+              End="0,31.194117576678">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.194117576678" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\LoadCustomers\AllCustomers"
+          TopLeft="373.571429366664,576.329411330355" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Derived Column Output1]"
+          TopLeft="228.714286035117,455.305881990312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.657143331547,121.023529340044"
+              Start="0,0"
+              End="181.657143331547,113.523529340044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.1657673126601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.1657673126601"
+                    Point2="0,79.1657673126601"
+                    Point3="4,79.1657673126601" />
+                  <mssgle:LineSegment
+                    End="177.657143331547,79.1657673126601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177.657143331547,79.1657673126601"
+                    Point2="181.657143331547,79.1657673126601"
+                    Point3="181.657143331547,83.1657673126601" />
+                  <mssgle:LineSegment
+                    End="181.657143331547,113.523529340044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Derived Column Output2]"
+          TopLeft="440.157143602961,513.423528998193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.9058823321622"
+              Start="0,0"
+              End="0,55.4058823321622">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.4058823321622" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Derived Column Output3]"
+          TopLeft="700.171429888204,482.070587849204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-224.20000052154,94.2588234811509"
+              Start="0,0"
+              End="-224.20000052154,86.7588234811509">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6580273899257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.6580273899257"
+                    Point2="0,61.6580273899257"
+                    Point3="-4,61.6580273899257" />
+                  <mssgle:LineSegment
+                    End="-220.20000052154,61.6580273899257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-220.20000052154,61.6580273899257"
+                    Point2="-224.20000052154,61.6580273899257"
+                    Point3="-224.20000052154,65.6580273899257" />
+                  <mssgle:LineSegment
+                    End="-224.20000052154,86.7588234811509" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\LoadCustomers\CustomerTable"
+          TopLeft="365.000000776989,737.682352456554" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\LoadCustomers\Multicast"
+          TopLeft="448.571429526319,663.611764425029" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Union All Output 1]"
+          TopLeft="443.171429366664,617.929411330355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.4000001596554,45.6823530946735"
+              Start="0,0"
+              End="65.4000001596554,38.1823530946735">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8411765473368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.8411765473368"
+                    Point2="0,22.8411765473368"
+                    Point3="4,22.8411765473368" />
+                  <mssgle:LineSegment
+                    End="61.4000001596554,22.8411765473368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.4000001596554,22.8411765473368"
+                    Point2="65.4000001596554,22.8411765473368"
+                    Point3="65.4000001596554,26.8411765473368" />
+                  <mssgle:LineSegment
+                    End="65.4000001596554,38.1823530946735" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Multicast Output 1]"
+          TopLeft="508.571429526319,705.211764425029">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.1714287493301,32.4705880315248"
+              Start="0,0"
+              End="-69.1714287493301,24.9705880315248">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.2352940157624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.2352940157624"
+                    Point2="0,16.2352940157624"
+                    Point3="-4,16.2352940157624" />
+                  <mssgle:LineSegment
+                    End="-65.1714287493301,16.2352940157624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-65.1714287493301,16.2352940157624"
+                    Point2="-69.1714287493301,16.2352940157624"
+                    Point3="-69.1714287493301,20.2352940157624" />
+                  <mssgle:LineSegment
+                    End="-69.1714287493301,24.9705880315248" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\LoadCustomers\Conditional Split 1"
+          TopLeft="616.428572740786,716.470588077105" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Multicast Output 3]"
+          TopLeft="568.571429526319,684.411764425029">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.8571432144668,52.8588236520758"
+              Start="0,0"
+              End="40.3571432144668,52.8588236520758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.9285716072334,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.9285716072334,0"
+                    Point2="23.9285716072334,0"
+                    Point3="23.9285716072334,4" />
+                  <mssgle:LineSegment
+                    End="23.9285716072334,48.8588236520758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.9285716072334,48.8588236520758"
+                    Point2="23.9285716072334,52.8588236520758"
+                    Point3="27.9285716072334,52.8588236520758" />
+                  <mssgle:LineSegment
+                    End="40.3571432144668,52.8588236520758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\LoadCustomers\Multicast 1"
+          TopLeft="652.142858531098,787.588235073591" />
+        <EdgeLayout
+          Id="Package\LoadCustomers.Paths[Case 1]"
+          TopLeft="698.028572740786,758.070588077105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.514285790312,29.5176469964861"
+              Start="0,0"
+              End="18.514285790312,22.0176469964861">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.758823498243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.758823498243"
+                    Point2="0,14.758823498243"
+                    Point3="4,14.758823498243" />
+                  <mssgle:LineSegment
+                    End="14.514285790312,14.758823498243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.514285790312,14.758823498243"
+                    Point2="18.514285790312,14.758823498243"
+                    Point3="18.514285790312,18.758823498243" />
+                  <mssgle:LineSegment
+                    End="18.514285790312,22.0176469964861" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.622075854844,19.758823498243,47.7584375,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LoadCustomers\ExcelSource">
+    design-time-name="Package\LoadCustomers\TempOrders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadCustomers\CustomerTable">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

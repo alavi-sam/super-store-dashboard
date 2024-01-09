@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="RemoveDuplicates.sql"
+  DTS:DTSID="{1E781B62-4D9B-4BD3-91D7-10D7E072B855}"
+  DTS:CreationName="FILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="F:\Projects\super-store-dashboard\RemoveDuplicates.sql" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
