@@ -1,0 +1,928 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2024 9:40:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OLK7CR6"
+  DTS:CreatorName="DESKTOP-OLK7CR6\ASUS"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{9533A68C-7697-49E6-A290-4E98ADA22D51}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.229"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="excelTransfer"
+  DTS:VersionGUID="{8D3F08BF-7152-42EA-A2AB-62D511B8C023}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{F0316D62-4222-4DBC-B192-B538459C1819}"
+      DTS:ObjectName="DestinationConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=F:\Projects\super-store-dashboard\superstore_sales.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{DF203CC5-399C-446F-BD1F-F6265D01B3EF}"
+      DTS:ObjectName="SourceConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=F:\Projects\super-store-dashboard\superstore_sales.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{1348697C-42C7-4C07-ADF5-E8810F623785}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - Orders"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Destination - Orders"
+              usesDispositions="true"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Orders</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - Orders.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[order_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[order_date]"
+                      cachedDataType="date"
+                      cachedName="order_date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[order_date]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[ship_date]"
+                      cachedDataType="date"
+                      cachedName="ship_date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[ship_date]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[ship_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[ship_mode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ship_mode"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[ship_mode]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[ship_mode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[customer_name]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[customer_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[segment]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[segment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[state]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[country]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[market]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[market]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[product_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[category]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[sub_category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sub_category"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[sub_category]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[sub_category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[product_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[product_name]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[product_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[sales]"
+                      cachedDataType="r8"
+                      cachedName="sales"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[quantity]"
+                      cachedDataType="r8"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[discount]"
+                      cachedDataType="r8"
+                      cachedName="discount"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[discount]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[discount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[profit]"
+                      cachedDataType="r8"
+                      cachedName="profit"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[profit]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[profit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[shipping_cost]"
+                      cachedDataType="r8"
+                      cachedName="shipping_cost"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[shipping_cost]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[shipping_cost]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[order_priority]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="order_priority"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[order_priority]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_priority]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].Columns[year]"
+                      cachedDataType="r8"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[year]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[year]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[order_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[order_date]"
+                      dataType="date"
+                      name="order_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[ship_date]"
+                      dataType="date"
+                      name="ship_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[ship_mode]"
+                      dataType="wstr"
+                      length="255"
+                      name="ship_mode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      name="segment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[market]"
+                      dataType="wstr"
+                      length="255"
+                      name="market" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[product_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[sub_category]"
+                      dataType="wstr"
+                      length="255"
+                      name="sub_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[product_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[sales]"
+                      dataType="r8"
+                      name="sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[quantity]"
+                      dataType="r8"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[discount]"
+                      dataType="r8"
+                      name="discount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[profit]"
+                      dataType="r8"
+                      name="profit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[shipping_cost]"
+                      dataType="r8"
+                      name="shipping_cost" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[order_priority]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_priority" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - Orders.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Orders.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Orders.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Orders.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Orders$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source - Orders$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Orders$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Orders$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[order_date]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_date]"
+                      name="order_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[ship_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[ship_date]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[ship_date]"
+                      name="ship_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[ship_mode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[ship_mode]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[ship_mode]"
+                      name="ship_mode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[customer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[customer_name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[customer_name]"
+                      name="customer_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[segment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[segment]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[segment]"
+                      name="segment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[market]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[market]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[market]"
+                      name="market"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[region]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[product_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[product_id]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[sub_category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[sub_category]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[sub_category]"
+                      name="sub_category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[product_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[product_name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[product_name]"
+                      name="product_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[sales]"
+                      name="sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[discount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[discount]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[discount]"
+                      name="discount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[profit]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[profit]"
+                      name="profit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[shipping_cost]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[shipping_cost]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[shipping_cost]"
+                      name="shipping_cost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_priority]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[order_priority]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[order_priority]"
+                      name="order_priority"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[year]"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[order_date]"
+                      dataType="date"
+                      name="order_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[ship_date]"
+                      dataType="date"
+                      name="ship_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[ship_mode]"
+                      dataType="wstr"
+                      length="255"
+                      name="ship_mode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      name="segment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[market]"
+                      dataType="wstr"
+                      length="255"
+                      name="market" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[product_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[sub_category]"
+                      dataType="wstr"
+                      length="255"
+                      name="sub_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[product_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[sales]"
+                      dataType="r8"
+                      name="sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      dataType="r8"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[discount]"
+                      dataType="r8"
+                      name="discount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[profit]"
+                      dataType="r8"
+                      name="profit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[shipping_cost]"
+                      dataType="r8"
+                      name="shipping_cost" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[order_priority]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_priority" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output].ExternalColumns[year]"
+                      dataType="r8"
+                      name="year" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[order_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[order_date]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[order_date]"
+                      name="order_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ship_date]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ship_date]"
+                      name="ship_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ship_mode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ship_mode]"
+                      name="ship_mode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[customer_name]"
+                      name="customer_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[segment]"
+                      name="segment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[market]"
+                      name="market" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[product_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[sub_category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[sub_category]"
+                      name="sub_category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[product_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[product_name]"
+                      name="product_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[sales]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[sales]"
+                      name="sales" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[quantity]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[discount]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[discount]"
+                      name="discount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[profit]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[profit]"
+                      name="profit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[shipping_cost]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[shipping_cost]"
+                      name="shipping_cost" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[order_priority]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[order_priority]"
+                      name="order_priority" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[year]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[year]"
+                      name="year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 1\Destination - Orders.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source - Orders$.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{956E24EB-682A-4F4D-8B62-7FD05920D8FC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F0316D62-4222-4DBC-B192-B538459C1819}"
+          SQLTask:SqlStatementSource="CREATE TABLE `Orders` (&#xA;`order_id` VarChar(255),&#xA;`order_date` DateTime,&#xA;`ship_date` DateTime,&#xA;`ship_mode` VarChar(255),&#xA;`customer_name` VarChar(255),&#xA;`segment` VarChar(255),&#xA;`state` VarChar(255),&#xA;`country` VarChar(255),&#xA;`market` VarChar(255),&#xA;`region` VarChar(255),&#xA;`product_id` VarChar(255),&#xA;`category` VarChar(255),&#xA;`sub_category` VarChar(255),&#xA;`product_name` VarChar(255),&#xA;`sales` Double,&#xA;`quantity` Double,&#xA;`discount` Double,&#xA;`profit` Double,&#xA;`shipping_cost` Double,&#xA;`order_priority` VarChar(255),&#xA;`year` Double&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{C8FD07E8-DFE3-4B40-A68A-49AE6E2C2F7E\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{C8FD07E8-DFE3-4B40-A68A-49AE6E2C2F7E}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{C8FD07E8-DFE3-4B40-A68A-49AE6E2C2F7E}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
