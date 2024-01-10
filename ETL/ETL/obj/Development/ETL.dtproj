@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-OLK7CR6</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAov+XPOXsJ0OXFftU4nIjlwAAAAACAAAAAAAQZgAAAAEAACAAAAD+gNjMPn5ioh0ecjiKsXi7RgTKPnpUWaRKKXdNYDsUGgAAAAAOgAAAAAIAACAAAADv5UxQTTjx2vfkrNdEeyUgXHL2i+Y+1WaFaydmgie0iZAAAAA9/0V8glrkpu3UQ5i62eD+JjnOkO6dcwZuqbaVyoH7/e4cAQ4OWXQZiju/ZzhKmC7DGFEMEq2HGR9QedF/s4gN1nptDjNxN6JTHps95sP93RgI0k3Mt6AxXmU1ZtgB9R+CtzWEqDmYPPdNC0YdQkPMI8wCSt/4bfBUKpssDmu9LLJXZWiTzXtvd7a5uBaKlxpAAAAAmB88UNe5KeZK9IsJIJrhXf6eBe70cUjqq9G5Y5d5g+typU5IZbj/2UejCudhA67/SnI+gHLF0W6sZmtg0jJdtQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAov+XPOXsJ0OXFftU4nIjlwAAAAACAAAAAAAQZgAAAAEAACAAAACvUvpH/jAvqhKWSsGPmfxetG7ctCuCCdaSw3WYQ4KsTAAAAAAOgAAAAAIAACAAAAC2+WwGmuD9ODbZQL5Mn+mT+LIj2G3wlnxwf5it/BYatJAAAADO6IPOknUgS8GvczciK1IjIlJgQP5NCTfqET8JzfX4uFa+ikos2+Qwg3cBEvO8kTBHrY1h4fMtkTBTbdx6IaKX3NhK2Y9tkbwVZXMQBIBiNlAZV3wsKHl/JQJnu+zOIr3hP+VANvGhQIy8rp61xKYq+8FxJe1bAQLCMRq1/Eyz2Z8hvhtpxcAo19awbs0cSx5AAAAASEr7TKjxzXIf7oEndJd9N2kiDybduZVjswDBYr0q6OqqRQpJsFKtKwyJu0w62Y6wxrpIwJAjY/AoNIMWRYM06w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="LoadCustomers.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LoadTempOrders.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadProductCategory.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="LocalHost.SuperStore.conmgr" />
@@ -696,6 +697,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadProductCategory.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{DD08FEF0-ABBF-41EA-8A2F-5EEEFDFD5601}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DBF6B3E8-C0B6-428A-A2B9-78C13D35F01A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
