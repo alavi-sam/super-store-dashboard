@@ -26,6 +26,6 @@ CREATE TABLE dbo.Product(
 	CONSTRAINT PK_Product PRIMARY KEY NONCLUSTERED(ID),
 	CONSTRAINT FK_Product_ProductSubCategory FOREIGN KEY(ProductSubCategoryID) REFERENCES dbo.ProductSubCategory(ID),
 	ProductName VARCHAR(255) NOT NULL,
-	Price SMALLINT NULL
+	Price SMALLMONEY NULL
 )
 

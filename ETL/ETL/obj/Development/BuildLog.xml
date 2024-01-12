@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ETL</Name>
-    <LastWriteTime>2024-01-10T01:04:04.5178683Z</LastWriteTime>
+    <LastWriteTime>2024-01-10T01:23:16.7611085Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -24,6 +24,11 @@
     <ProjectBuildItemInfo>
       <Name>LoadProductSubCategory.dtsx</Name>
       <LastWriteTime>2024-01-10T01:09:30.404905Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>LoadProduct.dtsx</Name>
+      <LastWriteTime>2024-01-10T22:25:36.2002247Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
