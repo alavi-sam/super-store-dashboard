@@ -1,0 +1,3350 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/12/2024 9:43:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OLK7CR6"
+  DTS:CreatorName="DESKTOP-OLK7CR6\ASUS"
+  DTS:DTSID="{27447B51-9D41-4D25-A56F-5B5D5BEBE590}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{92A2A0C1-4A2B-4D23-BE6C-868CD0F68DE5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LoadOrders"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B3C08361-5554-44BC-BCF3-61A510482D7F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadOrders"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoadOrders\AllCustomers"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="AllCustomers"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[Segment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Segment"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Segment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[ship_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ship_date"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ship_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[order_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_date"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[order_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[ShipMode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ShipMode"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[ShipMode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ShipMode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CustomerName"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[CustomerName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[CustomerName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Country"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[Market]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Market"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Market]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[OrderPriority]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderPriority"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderPriority]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderPriority]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1].Columns[OrderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderID"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[Segment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Segment"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Segment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[ship_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ship_date"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ship_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[order_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_date"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[order_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[ShipMode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ShipMode"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[ShipMode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ShipMode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CustomerName"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[CustomerName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[CustomerName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Country"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[Market]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Market"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Market]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[OrderPriority]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderPriority"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderPriority]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderPriority]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2].Columns[OrderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderID"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="511"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[Segment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Segment"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Segment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[ship_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ship_date"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ship_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[order_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_date"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[order_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[ShipMode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ShipMode"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[ShipMode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ShipMode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CustomerName"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[CustomerName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[CustomerName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Country"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[Market]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Market"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Market]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[OrderPriority]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderPriority"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderPriority]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderPriority]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3].Columns[OrderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderID"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[NameSplitNumber]"
+                      name="NameSplitNumber" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]"
+                      dataType="wstr"
+                      length="511"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]"
+                      name="Segment" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ship_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ship_date]"
+                      name="ship_date" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[order_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[order_date]"
+                      name="order_date" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ShipMode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ShipMode]"
+                      name="ShipMode" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[CustomerName]"
+                      name="CustomerName" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]"
+                      name="Market" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderPriority]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderPriority]"
+                      name="OrderPriority" />
+                    <outputColumn
+                      refId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderID]"
+                      name="OrderID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\FindCustomerID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="FindCustomerID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Customer]) [refTable]
+where [refTable].[FirstName] = ? and [refTable].[LastName] = ? and [refTable].[Segment] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FirstName" dataType="DT_WSTR" length="80" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastName" dataType="DT_WSTR" length="80" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Segment" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]};#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]};#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadOrders\FindCustomerID.Connections[OleDbConnection]"
+                  connectionManagerID="{E122BF6D-ED4A-40FB-B852-2F814164FE79}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.SuperStore]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="511"
+                      cachedName="FirstName"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FirstName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LastName"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LastName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input].Columns[Segment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Segment"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Segment]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Segment</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Match Output].Columns[CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Match Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\FindCustomerID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\FindGeographyID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="FindGeographyID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Geography]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Geography]) [refTable]
+where [refTable].[Country] = ? and [refTable].[Market] = ? and [refTable].[Region] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Market" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Region" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Country" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]};#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]};#{Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadOrders\FindGeographyID.Connections[OleDbConnection]"
+                  connectionManagerID="{E122BF6D-ED4A-40FB-B852-2F814164FE79}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.SuperStore]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input].Columns[Market]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Market"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Market]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Market</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Region]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Region</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Country"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[Country]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Country</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Match Output].Columns[GeographyID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Match Output].Columns[GeographyID]"
+                      name="GeographyID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\FindGeographyID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\NameTokenNumber"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="NameTokenNumber"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\NameTokenNumber.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\NameTokenNumber.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadOrders\NameTokenNumber.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]"
+                      name="NameSplitNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKENCOUNT](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}," ")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKENCOUNT(customer_name," ")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadOrders\NameTokenNumber.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\Orders"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Orders"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Orders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadOrders\Orders.Connections[OleDbConnection]"
+                  connectionManagerID="{E122BF6D-ED4A-40FB-B852-2F814164FE79}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.SuperStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[ShipMode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ShipMode"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[ShipMode]"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ShipMode]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[OrderPriority]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderPriority"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[OrderPriority]"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderPriority]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Match Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[GeographyID]"
+                      cachedDataType="i2"
+                      cachedName="GeographyID"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[GeographyID]"
+                      lineageId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Match Output].Columns[GeographyID]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[order_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_date"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[order_date]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].Columns[ship_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ship_date"
+                      externalMetadataColumnId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                      lineageId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1].Columns[ship_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[ShipMode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ShipMode" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[OrderPriority]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OrderPriority" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input].ExternalColumns[GeographyID]"
+                      dataType="i2"
+                      name="GeographyID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\Orders.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[order_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[order_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_date"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[ship_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ship_date"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[ship_mode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ship_mode"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_mode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[segment]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[market]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadOrders\Sort.Inputs[Sort Input].Columns[order_priority]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="order_priority"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_priority]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_id]"
+                      name="order_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_date]"
+                      name="order_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_date]"
+                      name="ship_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_mode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_mode]"
+                      name="ship_mode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_mode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]"
+                      name="customer_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[segment]"
+                      name="segment">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[segment]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[market]"
+                      name="market">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[market]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[region]"
+                      name="region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_priority]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_priority]"
+                      name="order_priority">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_priority]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\SplitBasedOnNameWordNumber"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="SplitBasedOnNameWordNumber"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input].Columns[NameSplitNumber]"
+                      cachedDataType="i4"
+                      cachedName="NameSplitNumber"
+                      lineageId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[SingleWord]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="SingleWord"
+                  synchronousInputId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NameSplitNumber == 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Regular]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Regular"
+                  synchronousInputId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output].Columns[NameSplitNumber]} == 2</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NameSplitNumber == 2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[ThreeWord]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="ThreeWord"
+                  synchronousInputId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\TempOrders"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="TempOrders"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TempOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT order_id, order_date, ship_date, ship_mode, customer_name, segment, country, market, region, order_priority
+FROM     TempOrders</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadOrders\TempOrders.Connections[OleDbConnection]"
+                  connectionManagerID="{E122BF6D-ED4A-40FB-B852-2F814164FE79}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.SuperStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[order_date]"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_date]"
+                      name="order_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[ship_date]"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_date]"
+                      name="ship_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_mode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[ship_mode]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[ship_mode]"
+                      name="ship_mode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[customer_name]"
+                      name="customer_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[segment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[segment]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[segment]"
+                      name="segment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[market]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[market]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[market]"
+                      name="market"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_priority]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[order_priority]"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].Columns[order_priority]"
+                      name="order_priority"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[order_date]"
+                      dataType="dbTimeStamp"
+                      name="order_date" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[ship_date]"
+                      dataType="dbTimeStamp"
+                      name="ship_date" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[ship_mode]"
+                      dataType="wstr"
+                      length="255"
+                      name="ship_mode" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      name="segment" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[market]"
+                      dataType="wstr"
+                      length="255"
+                      name="market" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[order_priority]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_priority" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[order_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[order_date]"
+                      name="order_date" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ship_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ship_date]"
+                      name="ship_date" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ship_mode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ship_mode]"
+                      name="ship_mode" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[customer_name]"
+                      name="customer_name" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[segment]"
+                      name="segment" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[market]"
+                      name="market" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[order_priority]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[order_priority]"
+                      name="order_priority" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\ThreePartedName"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="ThreePartedName"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\ThreePartedName.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\ThreePartedName.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadOrders\ThreePartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="511"
+                      lineageId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}," ",1) + " " + [TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}," ",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",1) + " " + TOKEN(customer_name," ",2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}," ",3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",3)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadOrders\ThreePartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\TwoPartedName"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="TwoPartedName"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\TwoPartedName.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\TwoPartedName.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadOrders\TwoPartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}," ",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}," ",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name," ",2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadOrders\TwoPartedName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\UnicodeToNonUnicode"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="UnicodeToNonUnicode"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[ship_mode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ship_mode"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_mode]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="segment"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[segment]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[market]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[order_priority]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="order_priority"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_priority]" />
+                    <inputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[order_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[ShipMode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[ShipMode]"
+                      name="ShipMode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[ship_mode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[CustomerName]"
+                      name="CustomerName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Segment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Segment]"
+                      name="Segment"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[segment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[country]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Market]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Market]"
+                      name="Market"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[market]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderPriority]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderPriority]"
+                      name="OrderPriority"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_priority]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[order_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadOrders\WrongDelimitedTwoPartName"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="WrongDelimitedTwoPartName"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadOrders\WrongDelimitedTwoPartName.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadOrders\WrongDelimitedTwoPartName.Inputs[Derived Column Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadOrders\WrongDelimitedTwoPartName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]},"-| :",1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name,"-| :",1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TOKEN](#{Package\LoadOrders\Sort.Outputs[Sort Output].Columns[customer_name]},"-| :",2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TOKEN(customer_name,"-| :",2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadOrders\WrongDelimitedTwoPartName.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LoadOrders.Paths[Data Conversion Output]"
+              endId="Package\LoadOrders\NameTokenNumber.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\LoadOrders\UnicodeToNonUnicode.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Derived Column Output]"
+              endId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 3]"
+              name="Derived Column Output"
+              startId="Package\LoadOrders\ThreePartedName.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Derived Column Output1]"
+              endId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\LoadOrders\WrongDelimitedTwoPartName.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Derived Column Output2]"
+              endId="Package\LoadOrders\AllCustomers.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\LoadOrders\TwoPartedName.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Derived Column Output3]"
+              endId="Package\LoadOrders\SplitBasedOnNameWordNumber.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\LoadOrders\NameTokenNumber.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Lookup Match Output]"
+              endId="Package\LoadOrders\FindGeographyID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\LoadOrders\FindCustomerID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Lookup Match Output1]"
+              endId="Package\LoadOrders\Orders.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\LoadOrders\FindGeographyID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[OLE DB Source Output]"
+              endId="Package\LoadOrders\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\LoadOrders\TempOrders.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[Regular]"
+              endId="Package\LoadOrders\TwoPartedName.Inputs[Derived Column Input]"
+              name="Regular"
+              startId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[Regular]" />
+            <path
+              refId="Package\LoadOrders.Paths[SingleWord]"
+              endId="Package\LoadOrders\WrongDelimitedTwoPartName.Inputs[Derived Column Input]"
+              name="SingleWord"
+              startId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[SingleWord]" />
+            <path
+              refId="Package\LoadOrders.Paths[Sort Output]"
+              endId="Package\LoadOrders\UnicodeToNonUnicode.Inputs[Data Conversion Input]"
+              name="Sort Output"
+              startId="Package\LoadOrders\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\LoadOrders.Paths[ThreeWord]"
+              endId="Package\LoadOrders\ThreePartedName.Inputs[Derived Column Input]"
+              name="ThreeWord"
+              startId="Package\LoadOrders\SplitBasedOnNameWordNumber.Outputs[ThreeWord]" />
+            <path
+              refId="Package\LoadOrders.Paths[Union All Output 1]"
+              endId="Package\LoadOrders\FindCustomerID.Inputs[Lookup Input]"
+              name="Union All Output 1"
+              startId="Package\LoadOrders\AllCustomers.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TruncateOrders"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5A9E6043-CE4A-4A77-8820-34A8FECE5B48}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TruncateOrders"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E122BF6D-ED4A-40FB-B852-2F814164FE79}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM dbo.Orders&#xA;DBCC CHECKIDENT('dbo.Orders', RESEED, 0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{223D59E8-0A65-4D9B-B816-57F20F4917C3}"
+      DTS:From="Package\TruncateOrders"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LoadOrders" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\LoadOrders"
+          TopLeft="403.357143704076,154.617646928116" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\TruncateOrders"
+          TopLeft="399.785715061183,30.1470588282215" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="472.57142938263,71.7470588282215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82.8705880998947"
+              Start="0,0"
+              End="0,75.3705880998947">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.3705880998947" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LoadOrders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\LoadOrders\TempOrders"
+          TopLeft="411.428572304395,48.9411764276894" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\LoadOrders\UnicodeToNonUnicode"
+          TopLeft="385.357143677467,195.573529240337" />
+        <NodeLayout
+          Size="230.4,41.6"
+          Id="Package\LoadOrders\SplitBasedOnNameWordNumber"
+          TopLeft="370.000000787632,354.717646836956" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\LoadOrders\NameTokenNumber"
+          TopLeft="395.714286556657,274.423529260278" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\LoadOrders\TwoPartedName"
+          TopLeft="202.142857573166,458.717646745796" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\LoadOrders\WrongDelimitedTwoPartName"
+          TopLeft="378.571429377307,516.835293753677" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\LoadOrders\ThreePartedName"
+          TopLeft="670.000001426253,485.482352604688" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\LoadOrders\AllCustomers"
+          TopLeft="425.000000904713,621.341176085839" />
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[SingleWord]"
+          TopLeft="486.88571508247,396.317646836956">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,120.517646916721"
+              Start="0,0"
+              End="0,113.017646916721">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.017646916721" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.52865234375,50.6772804896105,51.0573046875,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Regular]"
+          TopLeft="429.600000787632,396.317646836956">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-149.457143214467,62.3999999088397"
+              Start="0,0"
+              End="-149.457143214467,54.8999999088397">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2759725089637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2759725089637"
+                    Point2="0,21.2759725089637"
+                    Point3="-4,21.2759725089637" />
+                  <mssgle:LineSegment
+                    End="-145.457143214467,21.2759725089637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-145.457143214467,21.2759725089637"
+                    Point2="-149.457143214467,21.2759725089637"
+                    Point3="-149.457143214467,25.2759725089637" />
+                  <mssgle:LineSegment
+                    End="-149.457143214467,54.8999999088397" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-92.1972630134835,26.2759725089637,34.9373828125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Derived Column Output]"
+          TopLeft="751.600001426253,527.082352604688">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-224.20000052154,94.2588234811509"
+              Start="0,0"
+              End="-224.20000052154,86.7588234811509">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6580273899257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.6580273899257"
+                    Point2="0,61.6580273899257"
+                    Point3="-4,61.6580273899257" />
+                  <mssgle:LineSegment
+                    End="-220.20000052154,61.6580273899257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-220.20000052154,61.6580273899257"
+                    Point2="-224.20000052154,61.6580273899257"
+                    Point3="-224.20000052154,65.6580273899257" />
+                  <mssgle:LineSegment
+                    End="-224.20000052154,86.7588234811509" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Derived Column Output1]"
+          TopLeft="491.58571514101,558.435293753677">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.9058823321622"
+              Start="0,0"
+              End="0,55.4058823321622">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.4058823321622" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Derived Column Output2]"
+          TopLeft="280.142857573166,500.317646745796">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.657143331547,121.023529340044"
+              Start="0,0"
+              End="181.657143331547,113.523529340044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.1657673126601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.1657673126601"
+                    Point2="0,79.1657673126601"
+                    Point3="4,79.1657673126601" />
+                  <mssgle:LineSegment
+                    End="177.657143331547,79.1657673126601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177.657143331547,79.1657673126601"
+                    Point2="181.657143331547,79.1657673126601"
+                    Point3="181.657143331547,83.1657673126601" />
+                  <mssgle:LineSegment
+                    End="181.657143331547,113.523529340044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Derived Column Output3]"
+          TopLeft="483.457143672145,316.023529260278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.694117576678"
+              Start="0,0"
+              End="0,31.194117576678">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.194117576678" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[ThreeWord]"
+          TopLeft="540.800000787632,396.317646836956">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.800000638621,89.1647057677325"
+              Start="0,0"
+              End="210.800000638621,81.6647057677325">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4016960169156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.4016960169156"
+                    Point2="0,30.4016960169156"
+                    Point3="4,30.4016960169156" />
+                  <mssgle:LineSegment
+                    End="206.800000638621,30.4016960169156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.800000638621,30.4016960169156"
+                    Point2="210.800000638621,30.4016960169156"
+                    Point3="210.800000638621,34.4016960169156" />
+                  <mssgle:LineSegment
+                    End="210.800000638621,81.6647057677325" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="80.1709182880605,35.4016960169156,50.4581640625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Data Conversion Output]"
+          TopLeft="479.735715117062,237.173529240337">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.2500000199412"
+              Start="0,0"
+              End="0,29.7500000199412">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7500000199412" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\LoadOrders\FindCustomerID"
+          TopLeft="414.28571516762,696.788235050801" />
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Union All Output 1]"
+          TopLeft="493.042858036167,662.941176085839">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.8470589649618"
+              Start="0,0"
+              End="0,26.3470589649618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3470589649618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\LoadOrders\FindGeographyID"
+          TopLeft="415.714286599232,775.847058577531" />
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Lookup Match Output]"
+          TopLeft="493.800000883426,738.388235050801">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.4588235267304"
+              Start="0,0"
+              End="0,29.9588235267304">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9588235267304" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.17472426336519,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\LoadOrders\Orders"
+          TopLeft="435.000000926001,859.635293867627" />
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Lookup Match Output1]"
+          TopLeft="492.957143762617,817.447058577531">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.1882352900959"
+              Start="0,0"
+              End="0,34.6882352900959">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.6882352900959" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.539430145048,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\LoadOrders\Sort"
+          TopLeft="429.464286628502,120.441176365017" />
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[OLE DB Source Output]"
+          TopLeft="479.046429466449,90.5411764276894">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.8999999373275"
+              Start="0,0"
+              End="0,22.3999999373275">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3999999373275" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadOrders.Paths[Sort Output]"
+          TopLeft="478.010715152985,162.041176365017">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5323528753201"
+              Start="0,0"
+              End="0,26.0323528753201">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0323528753201" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadOrders\TempOrders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadOrders\FindCustomerID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Customer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadOrders\FindGeographyID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Geography]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadOrders\Orders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
