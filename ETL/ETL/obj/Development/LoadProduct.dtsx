@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{37780CC9-24B1-4052-A45F-94574BB2D7E1}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2D8CFFDB-E193-477A-9399-605A18FFECE2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -513,6 +513,169 @@ where [refTable].[SubCategory] = ? and [refTable].[CategoryID] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\LoadProduct\RemoveDuplicateProducts"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="RemoveDuplicateProducts"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LoadProduct\RemoveDuplicateProducts.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Inputs[Sort Input].Columns[product_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="product_id"
+                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Inputs[Sort Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[category]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Inputs[Sort Input].Columns[sub_category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sub_category"
+                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[sub_category]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Inputs[Sort Input].Columns[product_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_id]"
+                      name="product_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[category]"
+                      name="category">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[category]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[sub_category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[sub_category]"
+                      name="sub_category">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[sub_category]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_name]"
+                      name="product_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\LoadProduct\TempOrders"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -702,25 +865,26 @@ FROM     TempOrders</property>
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="product_id"
-                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_id]" />
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_id]" />
                     <inputColumn
                       refId="Package\LoadProduct\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[category]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="category"
-                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[category]" />
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[category]" />
                     <inputColumn
                       refId="Package\LoadProduct\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[sub_category]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sub_category"
-                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[sub_category]" />
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[sub_category]" />
                     <inputColumn
                       refId="Package\LoadProduct\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[product_name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="product_name"
-                      lineageId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_name]" />
+                      lineageId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_name]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -747,7 +911,7 @@ FROM     TempOrders</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_id]}</property>
+                          name="SourceInputColumnLineageID">#{Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_id]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -769,7 +933,7 @@ FROM     TempOrders</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[category]}</property>
+                          name="SourceInputColumnLineageID">#{Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[category]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -791,7 +955,7 @@ FROM     TempOrders</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[sub_category]}</property>
+                          name="SourceInputColumnLineageID">#{Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[sub_category]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -813,7 +977,7 @@ FROM     TempOrders</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output].Columns[product_name]}</property>
+                          name="SourceInputColumnLineageID">#{Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output].Columns[product_name]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -866,9 +1030,14 @@ FROM     TempOrders</property>
               startId="Package\LoadProduct\FindProductSubCategoryID.Outputs[Lookup Match Output]" />
             <path
               refId="Package\LoadProduct.Paths[OLE DB Source Output]"
-              endId="Package\LoadProduct\UnicodeToNonUnicode.Inputs[Data Conversion Input]"
+              endId="Package\LoadProduct\RemoveDuplicateProducts.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\LoadProduct\TempOrders.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LoadProduct.Paths[Sort Output]"
+              endId="Package\LoadProduct\UnicodeToNonUnicode.Inputs[Data Conversion Input]"
+              name="Sort Output"
+              startId="Package\LoadProduct\RemoveDuplicateProducts.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -953,96 +1122,28 @@ FROM     TempOrders</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\LoadProduct\UnicodeToNonUnicode"
-          TopLeft="385.000000819564,123.882352832588" />
-        <NodeLayout
           Size="136.8,41.6"
           Id="Package\LoadProduct\TempOrders"
-          TopLeft="404.285715146333,32.1176470306712" />
-        <EdgeLayout
-          Id="Package\LoadProduct.Paths[OLE DB Source Output]"
-          TopLeft="475.042857982949,73.7176470306712">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.1647058019172"
-              Start="0,0"
-              End="0,42.6647058019172">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.6647058019172" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="187.2,41.6"
-          Id="Package\LoadProduct\FindProductCategoryID"
-          TopLeft="386.428572251177,211.058823344411" />
-        <EdgeLayout
-          Id="Package\LoadProduct.Paths[Data Conversion Output]"
-          TopLeft="478.71428653537,165.482352832588">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.5764705118222"
-              Start="0,0"
-              End="0,38.0764705118222">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.0764705118222" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="399.28571513569,36.7058823207671" />
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\LoadProduct\FindProductSubCategoryID"
-          TopLeft="377.857143661502,305.541176211184" />
-        <EdgeLayout
-          Id="Package\LoadProduct.Paths[Lookup Match Output]"
-          TopLeft="480.142857956339,252.658823344411">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.8823528667739"
-              Start="0,0"
-              End="0,45.3823528667739">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.3823528667739" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,16.886488933387,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="368.571429356021,378.447058611716" />
         <NodeLayout
           Size="114.4,41.6"
           Id="Package\LoadProduct\Product"
-          TopLeft="417.857143746651,412.541176268159" />
+          TopLeft="408.57142944117,485.447058668692" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\LoadProduct\UnicodeToNonUnicode"
+          TopLeft="375.714286514083,196.78823523312" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\LoadProduct\FindProductCategoryID"
+          TopLeft="377.142857945696,283.964705744943" />
         <EdgeLayout
           Id="Package\LoadProduct.Paths[Lookup Match Output1]"
-          TopLeft="477.657143704076,347.141176211184">
+          TopLeft="468.371429398595,420.047058611717">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1064,47 +1165,110 @@ FROM     TempOrders</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadProduct.Paths[Lookup Match Output]"
+          TopLeft="470.857143650858,325.564705744943">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.8823528667739"
+              Start="0,0"
+              End="0,45.3823528667739">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3823528667739" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,16.886488933387,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadProduct.Paths[Data Conversion Output]"
+          TopLeft="469.428572229889,238.38823523312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5764705118222"
+              Start="0,0"
+              End="0,38.0764705118222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0764705118222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\LoadProduct\RemoveDuplicateProducts"
+          TopLeft="366.428572208602,127.741176404899" />
+        <EdgeLayout
+          Id="Package\LoadProduct.Paths[OLE DB Source Output]"
+          TopLeft="467.257143672146,78.3058823207671">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.4352940841322"
+              Start="0,0"
+              End="0,41.9352940841322">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.9352940841322" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadProduct.Paths[Sort Output]"
+          TopLeft="467.471429361342,169.341176404899">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.4470588282208"
+              Start="0,0"
+              End="0,19.9470588282208">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9470588282208" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadProduct\TempOrders">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadProduct\FindProductCategoryID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[ProductCategory]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LoadProduct\FindProductSubCategoryID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1114,7 +1278,7 @@ FROM     TempOrders</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1131,6 +1295,37 @@ FROM     TempOrders</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadProduct\FindProductCategoryID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ProductCategory]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadProduct\TempOrders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
