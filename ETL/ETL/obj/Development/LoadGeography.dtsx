@@ -1,0 +1,813 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/12/2024 8:47:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OLK7CR6"
+  DTS:CreatorName="DESKTOP-OLK7CR6\ASUS"
+  DTS:DTSID="{B577FA44-5F66-4F66-B37F-82D5E5747082}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5223.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{41237DD0-A946-4415-91E4-062E164ED25C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LoadGeography"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{013D556A-3D0F-4E76-8954-A67A94EF97CF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadGeography"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoadGeography\Geography"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Geography"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Geography]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadGeography\Geography.Connections[OleDbConnection]"
+                  connectionManagerID="{E122BF6D-ED4A-40FB-B852-2F814164FE79}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.SuperStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].Columns[Copy of market]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of market"
+                      externalMetadataColumnId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[Market]"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of market]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].Columns[Copy of region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of region"
+                      externalMetadataColumnId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of region]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].Columns[Copy of country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of country"
+                      externalMetadataColumnId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of country]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i2"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[Market]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Market" />
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Country" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadGeography\Geography.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\Geography.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\Geography.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadGeography\Geography.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\Geography.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadGeography\RemoveDuplicateGeo"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="RemoveDuplicateGeo"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LoadGeography\RemoveDuplicateGeo.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadGeography\RemoveDuplicateGeo.Inputs[Sort Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadGeography\RemoveDuplicateGeo.Inputs[Sort Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[market]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadGeography\RemoveDuplicateGeo.Inputs[Sort Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[country]"
+                      name="country"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[market]"
+                      name="market"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[market]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[region]"
+                      name="region"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadGeography\TempOrders"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="TempOrders"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT country, market, region
+FROM     TempOrders</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadGeography\TempOrders.Connections[OleDbConnection]"
+                  connectionManagerID="{E122BF6D-ED4A-40FB-B852-2F814164FE79}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.SuperStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[market]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[market]"
+                      length="255"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[market]"
+                      name="market"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="255"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[market]"
+                      dataType="wstr"
+                      length="255"
+                      name="market" />
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[market]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[market]"
+                      name="market" />
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadGeography\UnicodeToNonUnicode"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="UnicodeToNonUnicode"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[market]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="market"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[market]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[region]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of country]"
+                      name="Copy of country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[country]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of market]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of market]"
+                      name="Copy of market"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[market]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output].Columns[Copy of region]"
+                      name="Copy of region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output].Columns[region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LoadGeography.Paths[Data Conversion Output]"
+              endId="Package\LoadGeography\Geography.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\LoadGeography\UnicodeToNonUnicode.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\LoadGeography.Paths[OLE DB Source Output]"
+              endId="Package\LoadGeography\RemoveDuplicateGeo.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\LoadGeography\TempOrders.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LoadGeography.Paths[Sort Output]"
+              endId="Package\LoadGeography\UnicodeToNonUnicode.Inputs[Data Conversion Input]"
+              name="Sort Output"
+              startId="Package\LoadGeography\RemoveDuplicateGeo.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TruncateGeography"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{702ADCED-F91E-4DEE-AE04-5FA947F6524D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TruncateGeography"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E122BF6D-ED4A-40FB-B852-2F814164FE79}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM dbo.Geography&#xA;DBCC CHECKIDENT('dbo.Geography', RESEED, 0)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C7761B0F-DFDD-456E-8348-EAA795B2B976}"
+      DTS:From="Package\TruncateGeography"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LoadGeography" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\LoadGeography"
+          TopLeft="319.107143536438,124.638235184692" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\TruncateGeography"
+          TopLeft="306.428572080877,50.4705881910547" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="393.567857808658,92.0705881910547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5676469936374"
+              Start="0,0"
+              End="0,25.0676469936374">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0676469936374" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LoadGeography">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\LoadGeography\TempOrders"
+          TopLeft="355.714286471508,33.6470587940365" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\LoadGeography\RemoveDuplicateGeo"
+          TopLeft="338.571429292158,107.058823435571" />
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[OLE DB Source Output]"
+          TopLeft="425.942857881833,75.2470587940365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.8117646415341"
+              Start="0,0"
+              End="0,24.3117646415341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3117646415341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\LoadGeography\UnicodeToNonUnicode"
+          TopLeft="335.714286428933,190.411764538979" />
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Sort Output]"
+          TopLeft="427.942857860546,148.658823435571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.7529411034084"
+              Start="0,0"
+              End="0,34.2529411034084">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2529411034084" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\LoadGeography\Geography"
+          TopLeft="360.000000766346,266.882352707244" />
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Data Conversion Output]"
+          TopLeft="426.457143597639,232.011764538979">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8705881682648"
+              Start="0,0"
+              End="0,27.3705881682648">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3705881682648" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadGeography\TempOrders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadGeography\Geography">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
